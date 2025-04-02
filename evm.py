@@ -22,14 +22,14 @@ def save_wallets_to_csv(wallets, filename="wallets.csv"):
             writer.writerow(wallet)
 
 # Fungsi untuk menyimpan wallet dan jumlah token random ke file CSV
-def save_wallets_with_tokens_to_csv(wallets, filename="wallets_with_tokens.csv"):
+def save_wallets_with_tokens_to_csv(wallets, filename="recipients.csv"):
     with open(filename, mode='w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=["address", "quantity"])
+        writer = csv.DictWriter(file, fieldnames=["wallet", "amount"])
         writer.writeheader()
         for wallet in wallets:
             # Generate jumlah token random (misalnya antara 1 dan 1000)
             quantity = random.randint(1, 1000)
-            writer.writerow({"address": wallet["address"], "quantity": quantity})
+            writer.writerow({"wallet": wallet["address"], "amount": quantity})
 
 # Input jumlah wallet yang ingin dibuat
 num_wallets = int(input("Masukkan jumlah wallet yang ingin digenerate: "))
